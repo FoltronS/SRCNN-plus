@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+
+# documentation (local only)
+docs/
+
+# large binary files
+datasets/
+data/
+outputs/
+weights/
+*.h5
+*.pth
+
+# virtual environment
+.venv/
