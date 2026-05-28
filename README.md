@@ -8,7 +8,7 @@ PyTorch re-implementation of [Image Super-Resolution Using Deep Convolutional Ne
 |-------|-------------|-----------------|-----------------|------|
 | ×2 | 36.66 / 0.9542 | 36.69 / 0.9594 | 37.00 / 0.9612 | +0.34 dB |
 | ×3 | 32.75 / 0.9090 | 33.36 / 0.9319 | 33.59 / 0.9354 | +0.84 dB |
-| ×4 | 30.48 / 0.8628 | 30.33 / 0.8717 | 30.56 / 0.8778 | +0.08 dB |
+| ×4 | 30.49 / 0.8628 | 30.33 / 0.8717 | 30.56 / 0.8778 | +0.07 dB |
 
 *Format: PSNR (dB) / SSIM. Evaluation protocol follows VDSR (Kim et al., CVPR 2016).*
 
@@ -255,7 +255,7 @@ Three convolutional layers (9-5-5 configuration, matching TPAMI 2016):
 | conv2 | Non-linear mapping | 64 to 32 | 5×5 | 2 |
 | conv3 | Reconstruction | 32 to 1 | 5×5 | 2 |
 
-Zero-padding keeps spatial dimensions constant (required for the residual skip connection). Only the Y (luminance) channel of YCbCr is processed; Cb and Cr are bicubic-upscaled and recombined after inference.
+Zero-padding keeps spatial dimensions constant (required for the residual skip connection). Only the Y (luminance) channel of YCbCr is processed; Cb and Cr are bicubic-upscaled and recombined after inference. Total parameters: **57,281**.
 
 ---
 
