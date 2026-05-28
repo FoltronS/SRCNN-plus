@@ -51,6 +51,18 @@ def calc_psnr(img1, img2):
     return 10. * torch.log10(1. / torch.mean((img1 - img2) ** 2))
 
 
+def calc_ssim(img1, img2):
+    """Compute SSIM between two tensors of shape (1, 1, H, W), values in [0, 1].
+
+    Uses skimage.metrics.structural_similarity (Wang et al., 2004 reference
+    implementation) with data_range=1.0.
+    """
+    from skimage.metrics import structural_similarity
+    img1_np = img1.squeeze().cpu().numpy()
+    img2_np = img2.squeeze().cpu().numpy()
+    return float(structural_similarity(img1_np, img2_np, data_range=1.0))
+
+
 class AverageMeter(object):
     def __init__(self):
         self.reset()

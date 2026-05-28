@@ -8,9 +8,11 @@ docs/
 datasets/
 data/
 outputs/
+report/
 weights/
 *.h5
 *.pth
 
 # virtual environment
 .venv/
+__pycache__/

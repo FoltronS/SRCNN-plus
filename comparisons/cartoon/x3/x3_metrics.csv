@@ -1,0 +1,4 @@
+model,psnr_db,ssim
+x3_bicubic,27.64,0.9118
+x3_mse_noaug_nosched_nores,31.76,0.9497
+x3_l1,31.93,0.9552
