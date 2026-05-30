@@ -2,9 +2,27 @@
 
 PyTorch re-implementation of [Image Super-Resolution Using Deep Convolutional Networks](https://arxiv.org/abs/1501.00092) (Dong et al., TPAMI 2016), extended with four improvements: data augmentation, learning rate scheduling, L1 loss, and residual learning.
 
+## Quickstart
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Prepare datasets (downloads HDF5 files for ×2, ×3, ×4)
+python download_dataset.py
+
+# 3. Train and evaluate the full SRCNN+ model at ×3
+python train.py --scale 3 --loss l1 --num-epochs 400 --num-workers 0
+python eval.py --weights-file outputs/x3_l1/best.pth --eval-file datasets/Set5_x3.h5
+```
+
+Expected output: `PSNR on Set5_x3: 33.59 dB  (border crop: 3)`
+
+---
+
 ## Results (Set5, border crop = scale pixels)
 
-| Scale | SRCNN paper | Baseline (ours) | SRCNN+ (L1) | Gain |
+| Scale | SRCNN paper | Baseline | SRCNN+ (L1) | Gain |
 |-------|-------------|-----------------|-----------------|------|
 | ×2 | 36.66 / 0.9542 | 36.69 / 0.9594 | 37.00 / 0.9612 | +0.34 dB |
 | ×3 | 32.75 / 0.9090 | 33.36 / 0.9319 | 33.59 / 0.9354 | +0.84 dB |
